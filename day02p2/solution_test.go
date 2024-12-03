@@ -7,14 +7,19 @@ import (
 	"aoc/utils"
 )
 
-var testInput = `TEST INPUT GOES HERE`
+var testInput = `7 6 4 2 1
+1 2 7 8 9
+9 7 6 2 1
+1 3 2 4 5
+8 6 4 4 1
+1 3 6 7 9`
 
 func TestSolve(t *testing.T) {
 	tests := []struct {
 		input  string
 		answer int
 	}{
-		{testInput, 0},
+		{testInput, 4},
 	}
 
 	if testing.Verbose() {

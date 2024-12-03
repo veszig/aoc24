@@ -7,14 +7,14 @@ import (
 	"aoc/utils"
 )
 
-var testInput = `TEST INPUT GOES HERE`
+var testInput = `xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))`
 
 func TestSolve(t *testing.T) {
 	tests := []struct {
 		input  string
 		answer int
 	}{
-		{testInput, 0},
+		{testInput, 161},
 	}
 
 	if testing.Verbose() {
