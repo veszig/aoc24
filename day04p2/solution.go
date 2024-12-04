@@ -6,11 +6,6 @@ import (
 	"aoc/utils"
 )
 
-type coord struct {
-	x int
-	y int
-}
-
 func Solve(r io.Reader) any {
 	lines := utils.ReadLines(r)
 
