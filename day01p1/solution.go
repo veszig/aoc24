@@ -50,6 +50,8 @@ func Solve(r io.Reader) any {
 }
 
 // math.Abs works on float64s
+// Ryan Armstrong wrote up a really interesting post on how to implement an optimal solution:
+// http://cavaliercoder.com/blog/optimized-abs-for-int64-in-go.html
 func abs(x int) int {
 	if x < 0 {
 		return -x
