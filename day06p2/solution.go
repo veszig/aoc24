@@ -42,15 +42,7 @@ func Solve(r io.Reader) any {
 		}
 	}
 
-	// the obstacle HAS to be on one of the X characters
-	// so we can step through them and check if it would cause a loop if we would put an obstacle there
-	// how do we check it?
-	// - we start fresh, with the original map but put one obstacle there
-	// - we run the moveGuard simulation and we keep track of the last 4 obstacles we've encountered
-	//   this is easy to check, we just have to see when the guard rotates
-	// - if the 4th obstacle is the same, we found one
-
-	// we'll keep track of the turns so far
+	// we'll keep track of the turns the guard does
 	type turn struct {
 		x              int
 		y              int
@@ -63,7 +55,7 @@ func Solve(r io.Reader) any {
 		for j, char := range line {
 			// an obstacle has to be somewhere where we would otherwise go
 			if char == 'X' {
-				// if the guard is standing here, this isn't really a candidate
+				// if the guard is standing here in the beginning, this isn't really a candidate
 				if i == originalGuardX && j == originalGuardY {
 					continue
 				}
@@ -83,8 +75,8 @@ func Solve(r io.Reader) any {
 
 				// let's keep track of the turns encountered so far
 				var turns []turn
-				var leftTheMap bool
 				var x, y int // we'll keep track of the coordinates before the step here
+				var leftTheMap bool
 				for {
 					x = guardX
 					y = guardY
